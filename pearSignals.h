@@ -1,0 +1,22 @@
+#ifndef PEARSIGNALS_H
+#define PEARSIGNALS_H
+
+
+//      OVERDEFINING SIGNAL
+#define     prSignal     int8_t
+
+//      OVERDEFINING INDEXER
+#define     indexer     uint16_t
+
+
+//      SIGNALS TO LISTWIDGET
+enum SignalsListWidget
+{
+    DEFAULT_LISTWIDGET_OUTPUT           = 0x00000000,
+    REVERSE_LISTWIDGET_OUTPUT           = 0x00000001,
+    ONLYFOLDERS_LISTWIDGET_OUTPUT   	= 0x00000002,
+    ONLYFILES_LISTWIDGET_OUTPUT     	= 0x00000003,
+
+};
+#define DEFLISTOUT
+#endif // PEARSIGNALS_H
