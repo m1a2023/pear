@@ -30,7 +30,7 @@ public:
 
     pearBuffer      prBuffer;
 
-    pearSignal       	SIGNAL_LISTWIDGET;
+    pearSignal      SIGNAL_LISTWIDGET;
 
 private slots:
     //MY FUNCTIONS

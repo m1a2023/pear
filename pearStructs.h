@@ -7,10 +7,10 @@
 #include <filesystem>
 
 
+using std::vector;
+
 //			DIRECTORY INFORMATION
 #define     pearDirInfo     pearDirectoryInformation
-
-using std::vector;
 
 struct pearDirectoryInformation
 {
@@ -20,6 +20,17 @@ struct pearDirectoryInformation
     vector <QString> DirFolders;
 };
 
+struct pearFiles
+{
+    vector <QString> nameFiles;
+    vector <QString> lastModified;
+};
+
+struct pearFolders
+{
+    vector <QString> nameFolders;
+    vector <QString> lastModified;
+};
 
 pearDirInfo infoFilesFolders(QDir);
 
@@ -30,12 +41,14 @@ pearDirInfo infoFilesFolders(QDir);
 #define     qfilesb     quantityFilesStatusbar
 #define     qfoldersb   quantityFoldersStatusbar
 #define     modshowsb   modeShowStatusbar
+#define     lastmodsb   lastModifiedStatusbar
 
 struct pearStatusbarInformation
 {
     QString		quantityFilesStatusbar;
     QString 	quantityFoldersStatusbar;
     QString 	modeShowStatusbar;
+    QString		lastModifiedStatusbar;
 };
 
 //			BUFFER
@@ -44,8 +57,8 @@ struct pearStatusbarInformation
 
 struct pearBuffer
 {
+    QString     startDirectory = "/";
     QString     updateDisplayDirectory;
-    QString     previousDirectory;
 };
 
 #endif // PEARSTRUCTS_H
