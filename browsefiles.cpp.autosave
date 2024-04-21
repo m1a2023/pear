@@ -1,0 +1,41 @@
+#include	"pearStructs.h"
+#include    "pearSignals.h"
+
+
+//			DIRECTORY INFORMATION
+pearDirInfo infoFilesFolders(QDir directory)
+{
+    pearDirInfo     dirInfo;
+    indexer			garbageIndexer = 0;
+
+    //calculate count files and folders
+    foreach (QFileInfo fileInfo, directory.entryInfoList())
+    {
+        fileInfo.isFile()
+                ? dirInfo.quantFiles++
+                : dirInfo.quantFolders++
+                ;
+    }
+
+    foreach (QFileInfo fileInfo, directory.entryInfoList())
+    {
+        if (fileInfo.isFile()) dirInfo.DirFiles.push_back(fileInfo.fileName());
+
+        else{
+            if (garbageIndexer++ < 2);
+
+            else dirInfo.DirFolders.push_back("/" + fileInfo.baseName());
+        }
+    }
+
+    //delete first two wrong folders
+    dirInfo.quantFolders -= 2;
+
+    return dirInfo;
+}
+
+
+//			STATUSBAR
+
+
+
