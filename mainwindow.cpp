@@ -58,3 +58,33 @@ void MainWindow::on_labelDirectoryPath_textChanged(const QString &inputPath)
     }
 
 }
+
+void MainWindow::on_radioButton_clicked()
+{
+    SIGNAL_LISTWIDGET	= 	DEFAULT_LISTWIDGET_OUTPUT;
+
+    ui->ListWidget->clear();
+
+    on_labelDirectoryPath_textChanged(prBuffer.updateDisplayDirectory);
+}
+
+
+void MainWindow::on_radioButton_showFolders_clicked()
+{
+    SIGNAL_LISTWIDGET	= 	ONLYFOLDERS_LISTWIDGET_OUTPUT;
+
+    ui->ListWidget->clear();
+
+    on_labelDirectoryPath_textChanged(prBuffer.updateDisplayDirectory);
+}
+
+
+void MainWindow::on_radioButton_showFiles_clicked()
+{
+    SIGNAL_LISTWIDGET	= 	ONLYFILES_LISTWIDGET_OUTPUT;
+
+    ui->ListWidget->clear();
+
+    on_labelDirectoryPath_textChanged(prBuffer.updateDisplayDirectory);
+}
+

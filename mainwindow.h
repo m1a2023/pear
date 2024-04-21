@@ -30,7 +30,7 @@ public:
 
     pearBuffer      prBuffer;
 
-    prSignal       	SIGNAL_LISTWIDGET;
+    pearSignal       	SIGNAL_LISTWIDGET;
 
 private slots:
     //MY FUNCTIONS
@@ -38,6 +38,12 @@ private slots:
     //END FUNCTIONS
 
     void on_labelDirectoryPath_textChanged(const QString &arg1);
+
+    void on_radioButton_clicked();
+
+    void on_radioButton_showFolders_clicked();
+
+    void on_radioButton_showFiles_clicked();
 
 private:
     Ui::MainWindow *ui;

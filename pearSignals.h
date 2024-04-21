@@ -3,7 +3,7 @@
 
 
 //      OVERDEFINING SIGNAL
-#define     prSignal     int8_t
+#define     pearSignal     int8_t
 
 //      OVERDEFINING INDEXER
 #define     indexer     uint16_t
