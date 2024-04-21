@@ -8,7 +8,6 @@
 //      OVERDEFINING INDEXER
 #define     indexer     uint16_t
 
-
 //      SIGNALS TO LISTWIDGET
 enum SignalsListWidget
 {

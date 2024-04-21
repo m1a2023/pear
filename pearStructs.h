@@ -12,24 +12,31 @@ using std::vector;
 //			DIRECTORY INFORMATION
 #define     pearDirInfo     pearDirectoryInformation
 
-struct pearDirectoryInformation
-{
-    uint32_t         quantFiles		= 0;
-    uint32_t         quantFolders	= 0;
-    vector <QString> DirFiles;
-    vector <QString> DirFolders;
-};
+#define 	idfile			uint32_t
+#define 	idfolder		uint32_t
+#define 	dirFiles		FilesInfo
+#define 	dirFolders		FoldersInfo
+#define 	lastmod			lastModified
 
 struct pearFiles
 {
-    vector <QString> nameFiles;
-    vector <QString> lastModified;
+    idfile				id = 0;
+    vector <QString> 	nameFiles;
+    vector <QString> 	lastModified;
 };
 
 struct pearFolders
 {
-    vector <QString> nameFolders;
-    vector <QString> lastModified;
+    idfolder			id = 0;
+    vector <QString> 	nameFolders;
+    vector <QString> 	lastModified;
+};
+
+struct pearDirectoryInformation
+{
+
+    pearFiles			FilesInfo;
+    pearFolders 		FoldersInfo;
 };
 
 pearDirInfo infoFilesFolders(QDir);
@@ -45,10 +52,11 @@ pearDirInfo infoFilesFolders(QDir);
 
 struct pearStatusbarInformation
 {
-    QString		quantityFilesStatusbar;
-    QString 	quantityFoldersStatusbar;
-    QString 	modeShowStatusbar;
-    QString		lastModifiedStatusbar;
+
+    QString		quantityFilesStatusbar		= "";
+    QString 	quantityFoldersStatusbar	= "";
+    QString 	modeShowStatusbar			= "";
+    QString		lastModifiedStatusbar		= "";
 };
 
 //			BUFFER

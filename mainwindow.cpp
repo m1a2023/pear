@@ -31,21 +31,21 @@ void MainWindow::on_labelDirectoryPath_textChanged(const QString &inputPath)
     switch (SIGNAL_LISTWIDGET) 	//NOTE
     {							//make it easier
     case DEFAULT_LISTWIDGET_OUTPUT:
-        foreach (QString folder, prDirInfo.DirFolders)
+        foreach (QString folder, prDirInfo.dirFolders.nameFolders)
             ui->ListWidget->addItem(folder);
-        foreach (QString file, prDirInfo.DirFiles)
+        foreach (QString file, prDirInfo.dirFiles.nameFiles)
             ui->ListWidget->addItem(file);
 
         break;
 
     case ONLYFOLDERS_LISTWIDGET_OUTPUT:
-        foreach (QString folder, prDirInfo.DirFolders)
+        foreach (QString folder, prDirInfo.dirFolders.nameFolders)
             ui->ListWidget->addItem(folder);
 
         break;
 
     case ONLYFILES_LISTWIDGET_OUTPUT:
-        foreach (QString file, prDirInfo.DirFiles)
+        foreach (QString file, prDirInfo.dirFiles.nameFiles)
             ui->ListWidget->addItem(file);
 
         break;

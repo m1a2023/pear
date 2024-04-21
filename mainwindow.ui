@@ -471,9 +471,9 @@
    <widget class="QListWidget" name="ListWidget">
     <property name="geometry">
      <rect>
-      <x>539</x>
+      <x>409</x>
       <y>60</y>
-      <width>341</width>
+      <width>471</width>
       <height>470</height>
      </rect>
     </property>
@@ -512,8 +512,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>440</y>
+      <x>40</x>
+      <y>350</y>
       <width>101</width>
       <height>91</height>
      </rect>
@@ -573,20 +573,10 @@
    <widget class="QListWidget" name="ListWidgetRenaming">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>80</y>
-      <width>121</width>
+      <x>20</x>
+      <y>70</y>
+      <width>231</width>
       <height>241</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTableWidget" name="tableWidget">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>90</y>
-      <width>256</width>
-      <height>192</height>
      </rect>
     </property>
    </widget>
