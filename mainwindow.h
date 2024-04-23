@@ -45,6 +45,10 @@ private slots:
 
     void on_radioButton_showFiles_clicked();
 
+    void on_ListWidget_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_ListWidget_itemClicked(QListWidgetItem *item);
+
 private:
     Ui::MainWindow *ui;
 };
