@@ -86,14 +86,11 @@ void MainWindow::on_radioButton_showFiles_clicked()
 
 void MainWindow::on_ListWidget_itemDoubleClicked(QListWidgetItem *item)
 {
-    ui->ListWidgetRenaming->addItem(item);
-}
 
+    isPrFolder(item->text()) //artificial control input values - only files
+            ?	prCopyFiles.nameFiles.push_back(item->text())
+            :	ui->ListWidgetRenaming->update()
+            ;
 
-void MainWindow::on_ListWidget_itemClicked(QListWidgetItem *item)
-{
-    item->isSelected()
-        ? ui->ListWidgetRenaming->addItem(item)
-        : ui->ListWidget->addItem("no");
 }
 

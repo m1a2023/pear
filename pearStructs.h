@@ -9,6 +9,9 @@
 
 using std::vector;
 
+
+#define 	isPrFolder(a) a[0] == '/'
+
 //			DIRECTORY INFORMATION
 #define     pearDirInfo     pearDirectoryInformation
 
@@ -53,10 +56,10 @@ pearDirInfo infoFilesFolders(QDir);
 struct pearStatusbarInformation
 {
 
-    QString		quantityFilesStatusbar		= "";
-    QString 	quantityFoldersStatusbar	= "";
-    QString 	modeShowStatusbar			= "";
-    QString		lastModifiedStatusbar		= "";
+    QString		quantityFilesStatusbar;
+    QString 	quantityFoldersStatusbar;
+    QString 	modeShowStatusbar;
+    QString		lastModifiedStatusbar;
 };
 
 //			BUFFER

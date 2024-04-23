@@ -23,14 +23,18 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+//		current directory information
     pearDirInfo     prDirInfo;
-
+//		files that will be copied
+    pearFiles		prCopyFiles;
+//		statusbar showing information
     pearStatus   	prStatusbar;
-
+//		string buffer
     pearBuffer      prBuffer;
-
+//		signal for List Widget
     pearSignal      SIGNAL_LISTWIDGET;
+
+
 
 private slots:
     //MY FUNCTIONS
@@ -47,9 +51,9 @@ private slots:
 
     void on_ListWidget_itemDoubleClicked(QListWidgetItem *item);
 
-    void on_ListWidget_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;
 };
+
 #endif // MAINWINDOW_H
