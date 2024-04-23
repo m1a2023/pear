@@ -17,19 +17,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_labelDirectoryPath_textChanged(const QString &inputPath)
 {
-    //copying PATH into buffer
-    prBuffer.updateDisplayDirectory = inputPath;
+    prBuffer.updateDisplayDirectory = inputPath;	//copying PATH into buffer
 
-    //clear a previous file output
-    ui->ListWidget->clear();
+    ui->ListWidget->clear(); 						//clear a previous file output
 
-    //set a next directory
-    QDir currentDirectory = inputPath;
+    QDir currentDirectory = inputPath; 				//set a next directory
 
-    prDirInfo = infoFilesFolders(currentDirectory);
+    prDirInfo = infoFilesFolders(currentDirectory);	//fill the pearDirInfo
 
-    switch (SIGNAL_LISTWIDGET) 	//NOTE
-    {							//make it easier
+    switch (SIGNAL_LISTWIDGET)
+    {
     case DEFAULT_LISTWIDGET_OUTPUT:
         foreach (QString folder, prDirInfo.dirFolders.nameFolders)
             ui->ListWidget->addItem(folder);
@@ -84,5 +81,16 @@ void MainWindow::on_radioButton_showFiles_clicked()
     ui->ListWidget->clear();
 
     on_labelDirectoryPath_textChanged(prBuffer.udispdir);
+}
+
+
+void MainWindow::on_ListWidget_itemDoubleClicked(QListWidgetItem *item)
+{
+
+    isPrFolder(item->text()) //artificial control input values - only files
+            ?	prCopyFiles.nameFiles.push_back(item->text())
+            :	ui->ListWidgetRenaming->update()
+            ;
+
 }
 
