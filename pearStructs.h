@@ -26,7 +26,7 @@ struct pearFiles
     vector <QString> 	lastModified;
 };
 
-struct pearFolders : pearFiles { };
+struct pearFolders : public pearFiles { };
 
 struct pearDirectoryInformation
 {
