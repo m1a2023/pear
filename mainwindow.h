@@ -6,8 +6,9 @@
 
 
 //      MY INCLUDES
-#include "pearStructs.h"
-#include "pearSignals.h"
+#include 	"pearStructs.h"
+#include 	"pearSignals.h"
+#include	"pearClasses.h"
 
 //      END INCLUDE
 
@@ -28,7 +29,7 @@ public:
 //		files that will be copied
     pearFiles		prCopyFiles;
 //		statusbar showing information
-    pearStatus   	prStatusbar;
+    PearStatusbar   prStatusbar;
 //		string buffer
     pearBuffer      prBuffer;
 //		signal for List Widget
@@ -38,6 +39,7 @@ public:
 
 private slots:
     //MY FUNCTIONS
+    void showStatusbar();
 
     //END FUNCTIONS
 
