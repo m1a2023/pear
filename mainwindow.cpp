@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     on_labelDirectoryPath_textChanged(prBuffer.startDirectory);
+    on_radioButton_clicked();
 }
 
 
@@ -17,37 +18,45 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_labelDirectoryPath_textChanged(const QString &inputPath)
 {
-    prBuffer.updateDisplayDirectory = inputPath;	//copying PATH into buffer
+    prBuffer.udispdir = inputPath;					//copying PATH into buffer
 
     ui->ListWidget->clear(); 						//clear a previous file output
 
-    QDir currentDirectory = inputPath; 				//set a next directory
+    prDirInfo = infoFilesFolders(inputPath);	 	//fill the pearDirInfo
 
-    prDirInfo = infoFilesFolders(currentDirectory);	//fill the pearDirInfo
+    prStatusbar.showSbQuantFileFolder (
+                prDirInfo.FilesInfo.quantity,
+                prDirInfo.FoldersInfo.quantity
+        );
+
+    prStatusbar.dirExistStatusbarShow(QDir(inputPath));
 
     switch (SIGNAL_LISTWIDGET)
     {
     case DEFAULT_LISTWIDGET_OUTPUT:
-        foreach (QString folder, prDirInfo.dirFolders.nameFolders)
+        foreach (QString folder, prDirInfo.dirFolders.names)
             ui->ListWidget->addItem(folder);
-        foreach (QString file, prDirInfo.dirFiles.nameFiles)
+        foreach (QString file, prDirInfo.dirFiles.names)
             ui->ListWidget->addItem(file);
 
         break;
 
     case ONLYFOLDERS_LISTWIDGET_OUTPUT:
-        foreach (QString folder, prDirInfo.dirFolders.nameFolders)
+        foreach (QString folder, prDirInfo.dirFolders.names)
             ui->ListWidget->addItem(folder);
 
         break;
 
     case ONLYFILES_LISTWIDGET_OUTPUT:
-        foreach (QString file, prDirInfo.dirFiles.nameFiles)
+        foreach (QString file, prDirInfo.dirFiles.names)
             ui->ListWidget->addItem(file);
 
         break;
     }
 
+    showStatusbar();
+
+    prStatusbar.cleanWarnings();
 }
 
 
@@ -86,11 +95,6 @@ void MainWindow::on_radioButton_showFiles_clicked()
 
 void MainWindow::on_ListWidget_itemDoubleClicked(QListWidgetItem *item)
 {
-
-    isPrFolder(item->text()) //artificial control input values - only files
-            ?	prCopyFiles.nameFiles.push_back(item->text())
-            :	ui->ListWidgetRenaming->update()
-            ;
 
 }
 

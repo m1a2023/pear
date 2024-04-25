@@ -465,7 +465,7 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>refi</string>
+   <string>Pear</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QListWidget" name="ListWidget">
