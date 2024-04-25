@@ -17,4 +17,14 @@ enum SignalsListWidget
 };
 
 
+//		SIGNALS FOR BOOL
+#define 	Bool	uint8_t
+
+enum SignalsBool
+{
+    FALSE 	= 0,
+    TRUE	= 1
+};
+
+
 #endif // PEARSIGNALS_H

@@ -6,10 +6,11 @@
 
 
 //      MY INCLUDES
-#include "pearStructs.h"
-#include "pearSignals.h"
+#include 	"pearStructs.h"
+#include 	"pearSignals.h"
+#include	"pearClasses.h"
 
-//      END INCLUDE
+//      END INCLUDES
 
 
 QT_BEGIN_NAMESPACE
@@ -28,16 +29,17 @@ public:
 //		files that will be copied
     pearFiles		prCopyFiles;
 //		statusbar showing information
-    pearStatus   	prStatusbar;
+    PearStatusbar   prStatusbar;
 //		string buffer
     pearBuffer      prBuffer;
 //		signal for List Widget
     pearSignal      SIGNAL_LISTWIDGET;
-
-
+//	 	vector of selected files
+    PearSelItems	prSelItems;
 
 private slots:
     //MY FUNCTIONS
+    void showStatusbar();
 
     //END FUNCTIONS
 

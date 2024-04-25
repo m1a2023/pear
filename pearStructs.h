@@ -2,15 +2,13 @@
 #define PEARSTRUCTS_H
 
 
-#include <QString>
-#include <QDir>
-#include <filesystem>
+#include 	<QString>
+#include 	<QDir>
+#include 	<filesystem>
 
+//			GENERAL
+using 		std::vector;
 
-using std::vector;
-
-
-#define 	isPrFolder(a) a[0] == '/'
 
 //			DIRECTORY INFORMATION
 #define     pearDirInfo     pearDirectoryInformation
@@ -23,21 +21,15 @@ using std::vector;
 
 struct pearFiles
 {
-    idfile				id = 0;
-    vector <QString> 	nameFiles;
+    uint16_t			quantity = 0;
+    vector <QString> 	names;
     vector <QString> 	lastModified;
 };
 
-struct pearFolders
-{
-    idfolder			id = 0;
-    vector <QString> 	nameFolders;
-    vector <QString> 	lastModified;
-};
+struct pearFolders : public pearFiles { };
 
 struct pearDirectoryInformation
 {
-
     pearFiles			FilesInfo;
     pearFolders 		FoldersInfo;
 };
@@ -46,20 +38,22 @@ pearDirInfo infoFilesFolders(QDir);
 
 
 //			STATUSBAR
-#define     pearStatus  pearStatusbarInformation
+#define     pearStatusbarStruct  	pearStructStatusbarUnits
 
-#define     qfilesb     quantityFilesStatusbar
-#define     qfoldersb   quantityFoldersStatusbar
-#define     modshowsb   modeShowStatusbar
-#define     lastmodsb   lastModifiedStatusbar
+#define     qfilesb     		quantityFilesStatusbar
+#define     qfoldersb   		quantityFoldersStatusbar
+#define     modshowsb   		modeShowStatusbar
+#define     lastmodsb   		lastModifiedStatusbar
+#define 	warnings			warningsStatusbar
 
-struct pearStatusbarInformation
+struct pearStructStatusbarUnits
 {
-
     QString		quantityFilesStatusbar;
     QString 	quantityFoldersStatusbar;
     QString 	modeShowStatusbar;
     QString		lastModifiedStatusbar;
+    QString		quantitySelectedFiles;
+    QString		warningsStatusbar;
 };
 
 //			BUFFER
@@ -71,5 +65,6 @@ struct pearBuffer
     QString     startDirectory = "/";
     QString     updateDisplayDirectory;
 };
+
 
 #endif // PEARSTRUCTS_H

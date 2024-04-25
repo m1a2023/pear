@@ -1,5 +1,9 @@
 #include	"pearStructs.h"
 #include    "pearSignals.h"
+#include 	"pearClasses.h"
+
+
+//#define 	_foreach(item, Vector) 	for (uint16_t item = 0; item < vector<QString> Vector.size(); item++)
 
 
 //			DIRECTORY INFORMATION
@@ -12,8 +16,8 @@ pearDirInfo infoFilesFolders(QDir directory)
     foreach (QFileInfo fileInfo, directory.entryInfoList())
     {
         fileInfo.isFile()
-                ? dirInfo.dirFiles.id++
-                : dirInfo.dirFolders.id++
+                ? dirInfo.dirFiles.quantity++
+                : dirInfo.dirFolders.quantity++
                 ;
     }
 
@@ -21,7 +25,7 @@ pearDirInfo infoFilesFolders(QDir directory)
     {
         if (fileInfo.isFile())
         {
-            dirInfo.dirFiles.nameFiles.push_back(fileInfo.fileName());
+            dirInfo.dirFiles.names.push_back(fileInfo.fileName());
             dirInfo.dirFiles.lastmod.push_back(fileInfo.lastModified().toString());
         }
         else {
@@ -29,15 +33,33 @@ pearDirInfo infoFilesFolders(QDir directory)
 
             else
             {
-                dirInfo.dirFolders.nameFolders.push_back("/" + fileInfo.fileName());
+                dirInfo.dirFolders.names.push_back("/" + fileInfo.fileName());
                 dirInfo.dirFolders.lastmod.push_back(fileInfo.lastModified().toString());
             }
         }
     }
 
     //delete first two wrong folders
-    dirInfo.dirFolders.id -= 2;
+    dirInfo.dirFolders.quantity -= 2;
 
     return dirInfo;
 }
+
+
+//			SELECTING FILES
+#define 	fileExistsInSelItems		fileAlreadyExistsInSelectedItems
+
+Bool PearSelectedItems::fileAlreadyExistsInSelectedItems(const QString &newItem)
+{
+    Bool fileExists;
+
+    foreach (QString item, selectedItems)
+        newItem == item
+                ? fileExists = TRUE
+                : fileExists = FALSE
+                ;
+    return fileExists;
+}
+
+
 

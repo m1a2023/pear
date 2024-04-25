@@ -11,10 +11,12 @@ CONFIG += c++11
 SOURCES += \
     browsefiles.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    statusbar.cpp
 
 HEADERS += \
     mainwindow.h \
+    pearClasses.h \
     pearSignals.h \
     pearStructs.h
 
