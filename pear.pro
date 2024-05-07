@@ -10,17 +10,20 @@ CONFIG += c++11
 
 SOURCES += \
     browsefiles.cpp \
+    dialogtoolwindow.cpp \
     main.cpp \
     mainwindow.cpp \
     statusbar.cpp
 
 HEADERS += \
+    dialogtoolwindow.h \
     mainwindow.h \
     pearClasses.h \
     pearSignals.h \
     pearStructs.h
 
 FORMS += \
+    dialogtoolwindow.ui \
     mainwindow.ui
 
 # Default rules for deployment.
