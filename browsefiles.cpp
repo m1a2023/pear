@@ -46,7 +46,6 @@ pearDirInfo infoFilesFolders(QDir directory)
 }
 
 
-<<<<<<< Updated upstream
 //			SELECTING FILES
 #define 	fileExistsInSelItems		fileAlreadyExistsInSelectedItems
 
@@ -59,52 +58,8 @@ Bool PearSelectedItems::fileAlreadyExistsInSelectedItems(const QString &newItem)
                 ? fileExists = TRUE
                 : fileExists = FALSE
                 ;
-=======
-//			SELECTED ITEMS
-#define 	fileExistsInSelectedItems		fileAlreadyExistrsInSelectedItems
-
-Bool PearSelectedItems::fileAlreadyExistsInSelectedItems
-                                (const QString &newItem)
-{
-    Bool 	fileExists = TRUE;
-
-    for (indexer i = 0; i < selectedItems.size(); i++)
-    {
-        newItem == selectedItems[i]
-                ? 	fileExists *= FALSE
-                : 	fileExists *= TRUE
-                ;
-    }
-    return 	fileExists;
-}
-
-
-Bool PearSelectedItems::addItem(const QString &newItem)
-{
-    Bool fileExists;
-
-
-    if ((fileExists = fileAlreadyExistsInSelectedItems(newItem)))
-    {
-        countSelItems++;
-        selectedItems.push_back(newItem);
-    }
-
->>>>>>> Stashed changes
     return fileExists;
 }
 
 
-<<<<<<< Updated upstream
 
-=======
-void PearSelectedItems::deleteAllItems()
-{
-    for (indexer i = 0; i < countSelItems; i++)
-    {
-        selectedItems.pop_back();
-    }
-
-    countSelItems = 0;
-}
->>>>>>> Stashed changes

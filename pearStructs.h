@@ -57,8 +57,8 @@ struct pearStructStatusbarUnits
 };
 
 //			BUFFER
-#define     udispdir    	updateDisplayDirectory
-#define     startDir     	startDirectory
+#define     udispdir    updateDisplayDirectory
+#define     prevDir     previousDirectory
 
 struct pearBuffer
 {
@@ -67,13 +67,4 @@ struct pearBuffer
 };
 
 
-<<<<<<< Updated upstream
-=======
-//			BOOL
-
-#define 	Bool		uint8_t
-
-
-
->>>>>>> Stashed changes
 #endif // PEARSTRUCTS_H

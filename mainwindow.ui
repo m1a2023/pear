@@ -109,18 +109,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>76</red>
-        <green>76</green>
-        <blue>76</blue>
+        <red>119</red>
+        <green>118</green>
+        <blue>123</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>53</red>
-        <green>56</green>
-        <blue>57</blue>
+        <red>94</red>
+        <green>92</green>
+        <blue>100</blue>
        </color>
       </brush>
      </colorrole>
@@ -255,18 +255,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>76</red>
-        <green>76</green>
-        <blue>76</blue>
+        <red>119</red>
+        <green>118</green>
+        <blue>123</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>53</red>
-        <green>56</green>
-        <blue>57</blue>
+        <red>94</red>
+        <green>92</green>
+        <blue>100</blue>
        </color>
       </brush>
      </colorrole>
@@ -401,18 +401,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>53</red>
-        <green>56</green>
-        <blue>57</blue>
+        <red>94</red>
+        <green>92</green>
+        <blue>100</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>53</red>
-        <green>56</green>
-        <blue>57</blue>
+        <red>94</red>
+        <green>92</green>
+        <blue>100</blue>
        </color>
       </brush>
      </colorrole>
@@ -471,10 +471,10 @@
    <widget class="QListWidget" name="ListWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>70</y>
-      <width>551</width>
-      <height>311</height>
+      <x>409</x>
+      <y>60</y>
+      <width>471</width>
+      <height>470</height>
      </rect>
     </property>
     <property name="baseSize">
@@ -483,46 +483,6 @@
       <height>420</height>
      </size>
     </property>
-<<<<<<< Updated upstream
-=======
-    <property name="palette">
-     <palette>
-      <active>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>85</red>
-          <green>85</green>
-          <blue>85</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </active>
-      <inactive>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>85</red>
-          <green>85</green>
-          <blue>85</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </inactive>
-      <disabled>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>53</red>
-          <green>56</green>
-          <blue>57</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </disabled>
-     </palette>
-    </property>
->>>>>>> Stashed changes
     <property name="font">
      <font>
       <pointsize>13</pointsize>
@@ -535,11 +495,7 @@
      <number>1</number>
     </property>
     <property name="selectionMode">
-<<<<<<< Updated upstream
      <enum>QAbstractItemView::MultiSelection</enum>
-=======
-     <enum>QAbstractItemView::ExtendedSelection</enum>
->>>>>>> Stashed changes
     </property>
     <property name="iconSize">
      <size>
@@ -560,46 +516,6 @@
       <height>31</height>
      </rect>
     </property>
-<<<<<<< Updated upstream
-=======
-    <property name="palette">
-     <palette>
-      <active>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>85</red>
-          <green>85</green>
-          <blue>85</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </active>
-      <inactive>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>85</red>
-          <green>85</green>
-          <blue>85</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </inactive>
-      <disabled>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>53</red>
-          <green>56</green>
-          <blue>57</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </disabled>
-     </palette>
-    </property>
->>>>>>> Stashed changes
     <property name="font">
      <font>
       <pointsize>13</pointsize>
@@ -608,6 +524,54 @@
     <property name="text">
      <string>/</string>
     </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>350</y>
+      <width>101</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QRadioButton" name="radioButton">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>all</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_showFolders">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>folders</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_showFiles">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>files</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
    <widget class="QToolButton" name="toolButton">
     <property name="geometry">
@@ -618,43 +582,6 @@
       <height>31</height>
      </rect>
     </property>
-    <property name="palette">
-     <palette>
-      <active>
-       <colorrole role="Button">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>85</red>
-          <green>85</green>
-          <blue>85</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </active>
-      <inactive>
-       <colorrole role="Button">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>85</red>
-          <green>85</green>
-          <blue>85</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </inactive>
-      <disabled>
-       <colorrole role="Button">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>85</red>
-          <green>85</green>
-          <blue>85</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </disabled>
-     </palette>
-    </property>
     <property name="text">
      <string>...</string>
     </property>
@@ -662,228 +589,11 @@
    <widget class="QListWidget" name="ListWidgetRenaming">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>100</y>
-      <width>291</width>
-      <height>251</height>
-     </rect>
-    </property>
-    <property name="palette">
-     <palette>
-      <active>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>85</red>
-          <green>85</green>
-          <blue>85</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </active>
-      <inactive>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>85</red>
-          <green>85</green>
-          <blue>85</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </inactive>
-      <disabled>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>53</red>
-          <green>56</green>
-          <blue>57</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </disabled>
-     </palette>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>13</pointsize>
-     </font>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frame">
-    <property name="geometry">
-     <rect>
       <x>20</x>
-      <y>400</y>
-      <width>141</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>40</y>
-       <width>141</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QRadioButton" name="radioButton">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="text">
-         <string>all</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="radioButton_showFolders">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="text">
-         <string>folders</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="radioButton_showFiles">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="text">
-         <string>files</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>6</y>
-       <width>141</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Change mod view:</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>430</y>
-      <width>191</width>
-      <height>25</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="renamedFilesInfo">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
       <y>70</y>
-      <width>221</width>
-      <height>21</height>
+      <width>231</width>
+      <height>241</height>
      </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="spinBox_2">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>430</y>
-      <width>61</width>
-      <height>24</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>430</y>
-      <width>121</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>_</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox">
-    <property name="geometry">
-     <rect>
-      <x>460</x>
-      <y>470</y>
-      <width>121</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>use numbers</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>400</y>
-      <width>171</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Rename pattern:</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonClearAllRenFiles">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>360</y>
-      <width>88</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Clear all</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonSelectAllDirFiles">
-    <property name="geometry">
-     <rect>
-      <x>790</x>
-      <y>360</y>
-      <width>88</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Select all</string>
     </property>
    </widget>
   </widget>
