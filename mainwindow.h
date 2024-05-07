@@ -1,16 +1,21 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include "ui_mainwindow.h"
+#include 	<QMainWindow>
+#include 	"ui_mainwindow.h"
+#include 	<QMessageBox>
 
 
-//      MY INCLUDES
+//     	INCLUDES
 #include 	"pearStructs.h"
 #include 	"pearSignals.h"
 #include	"pearClasses.h"
+<<<<<<< Updated upstream
 
 //      END INCLUDES
+=======
+#include 	"dialogtoolwindow.h"
+>>>>>>> Stashed changes
 
 
 QT_BEGIN_NAMESPACE
@@ -25,34 +30,38 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 //		current directory information
-    pearDirInfo     prDirInfo;
+    pearDirInfo     	prDirInfo;
 //		files that will be copied
-    pearFiles		prCopyFiles;
+    pearFiles			prCopyFiles;
 //		statusbar showing information
-    PearStatusbar   prStatusbar;
+    PearStatusbar   	prStatusbar;
 //		string buffer
-    pearBuffer      prBuffer;
+    pearBuffer      	prBuffer;
 //		signal for List Widget
+<<<<<<< Updated upstream
     pearSignal      SIGNAL_LISTWIDGET;
 //	 	vector of selected files
     PearSelItems	prSelItems;
+=======
+    pearSignal      	SIGNAL_LISTWIDGET;
+//		selected files
+    PearSelectedItems 	prSelItems;
+>>>>>>> Stashed changes
 
 private slots:
-    //MY FUNCTIONS
+//		MY FUNCTIONS
     void showStatusbar();
 
-    //END FUNCTIONS
-
+//    	QT FUNCTUONS
     void on_labelDirectoryPath_textChanged(const QString &arg1);
-
     void on_radioButton_clicked();
-
     void on_radioButton_showFolders_clicked();
-
     void on_radioButton_showFiles_clicked();
-
     void on_ListWidget_itemDoubleClicked(QListWidgetItem *item);
-
+    void on_toolButton_clicked();
+    void on_ListWidget_itemSelectionChanged();
+    void on_pushButtonClearAllRenFiles_clicked();
+    void on_pushButtonSelectAllDirFiles_clicked();
 
 private:
     Ui::MainWindow *ui;
