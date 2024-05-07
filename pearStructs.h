@@ -9,6 +9,8 @@
 //			GENERAL
 using 		std::vector;
 
+using std::vector;
+
 
 //			DIRECTORY INFORMATION
 #define     pearDirInfo     pearDirectoryInformation
@@ -52,7 +54,6 @@ struct pearStructStatusbarUnits
     QString 	quantityFoldersStatusbar;
     QString 	modeShowStatusbar;
     QString		lastModifiedStatusbar;
-    QString		quantitySelectedFiles;
     QString		warningsStatusbar;
 };
 
@@ -67,13 +68,11 @@ struct pearBuffer
 };
 
 
-<<<<<<< Updated upstream
-=======
+
 //			BOOL
 
 #define 	Bool		uint8_t
 
 
 
->>>>>>> Stashed changes
 #endif // PEARSTRUCTS_H

@@ -3,9 +3,6 @@
 #include 	"pearClasses.h"
 
 
-//#define 	_foreach(item, Vector) 	for (uint16_t item = 0; item < vector<QString> Vector.size(); item++)
-
-
 //			DIRECTORY INFORMATION
 pearDirInfo infoFilesFolders(QDir directory)
 {
@@ -39,6 +36,7 @@ pearDirInfo infoFilesFolders(QDir directory)
         }
     }
 
+
     //delete first two wrong folders
     dirInfo.dirFolders.quantity -= 2;
 
@@ -46,20 +44,6 @@ pearDirInfo infoFilesFolders(QDir directory)
 }
 
 
-<<<<<<< Updated upstream
-//			SELECTING FILES
-#define 	fileExistsInSelItems		fileAlreadyExistsInSelectedItems
-
-Bool PearSelectedItems::fileAlreadyExistsInSelectedItems(const QString &newItem)
-{
-    Bool fileExists;
-
-    foreach (QString item, selectedItems)
-        newItem == item
-                ? fileExists = TRUE
-                : fileExists = FALSE
-                ;
-=======
 //			SELECTED ITEMS
 #define 	fileExistsInSelectedItems		fileAlreadyExistrsInSelectedItems
 
@@ -90,14 +74,11 @@ Bool PearSelectedItems::addItem(const QString &newItem)
         selectedItems.push_back(newItem);
     }
 
->>>>>>> Stashed changes
+
     return fileExists;
 }
 
 
-<<<<<<< Updated upstream
-
-=======
 void PearSelectedItems::deleteAllItems()
 {
     for (indexer i = 0; i < countSelItems; i++)
@@ -107,4 +88,3 @@ void PearSelectedItems::deleteAllItems()
 
     countSelItems = 0;
 }
->>>>>>> Stashed changes

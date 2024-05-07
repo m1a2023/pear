@@ -10,12 +10,8 @@
 #include 	"pearStructs.h"
 #include 	"pearSignals.h"
 #include	"pearClasses.h"
-<<<<<<< Updated upstream
-
-//      END INCLUDES
-=======
 #include 	"dialogtoolwindow.h"
->>>>>>> Stashed changes
+
 
 
 QT_BEGIN_NAMESPACE
@@ -38,15 +34,9 @@ public:
 //		string buffer
     pearBuffer      	prBuffer;
 //		signal for List Widget
-<<<<<<< Updated upstream
     pearSignal      SIGNAL_LISTWIDGET;
 //	 	vector of selected files
     PearSelItems	prSelItems;
-=======
-    pearSignal      	SIGNAL_LISTWIDGET;
-//		selected files
-    PearSelectedItems 	prSelItems;
->>>>>>> Stashed changes
 
 private slots:
 //		MY FUNCTIONS

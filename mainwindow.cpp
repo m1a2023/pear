@@ -31,48 +31,23 @@ void MainWindow::on_labelDirectoryPath_textChanged(const QString &inputPath)
                         prDirInfo.FoldersInfo.quantity
                     );
 
+
+    prStatusbar.dirExistStatusbarShow(QDir(inputPath));
+
     if (prStatusbar.dirExistStatusbarShow(QDir(inputPath)))
     {
-<<<<<<< Updated upstream
-    case DEFAULT_LISTWIDGET_OUTPUT:
-        for (indexer i = 0; i < prDirInfo.dirFolders.names.size(); i++)
-            ui->ListWidget->addItem(prDirInfo.dirFolders.names[i]);
-
-        for (indexer i = 0; i < prDirInfo.dirFiles.names.size(); i++)
-            ui->ListWidget->addItem(prDirInfo.dirFiles.names[i]);
-=======
         switch (SIGNAL_LISTWIDGET)
         {
         case DEFAULT_LISTWIDGET_OUTPUT:
             for (indexer i = 0; i < prDirInfo.dirFolders.names.size(); i++)
                 ui->ListWidget->addItem(prDirInfo.dirFolders.names[i]);
->>>>>>> Stashed changes
 
             for (indexer i = 0; i < prDirInfo.dirFiles.names.size(); i++)
                 ui->ListWidget->addItem(prDirInfo.dirFiles.names[i]);
 
-<<<<<<< Updated upstream
-    case ONLYFOLDERS_LISTWIDGET_OUTPUT:
-        for (indexer i = 0; i < prDirInfo.dirFolders.names.size(); i++)
-            ui->ListWidget->addItem(prDirInfo.dirFolders.names[i]);
-//        _foreach( (indexer),	(prDirInfo.dirFolders.names)	)
-//        {
-//            ui->ListWidget->addItem(prDirInfo.dirFolders.names[indexer]);
-//        }
-//        break;
-
-    case ONLYFILES_LISTWIDGET_OUTPUT:
-        for (indexer i = 0; i < prDirInfo.dirFiles.names.size(); i++)
-            ui->ListWidget->addItem(prDirInfo.dirFiles.names[i]);
-=======
-            break;
-
         case ONLYFOLDERS_LISTWIDGET_OUTPUT:
             for (indexer i = 0; i < prDirInfo.dirFolders.names.size(); i++)
                 ui->ListWidget->addItem(prDirInfo.dirFolders.names[i]);
-
-            break;
->>>>>>> Stashed changes
 
         case ONLYFILES_LISTWIDGET_OUTPUT:
             for (indexer i = 0; i < prDirInfo.dirFiles.names.size(); i++)
@@ -85,11 +60,6 @@ void MainWindow::on_labelDirectoryPath_textChanged(const QString &inputPath)
 
     prStatusbar.cleanWarnings();
 
-    foreach (QListWidgetItem* item, ui->ListWidget->selectedItems())
-    {
-        //prSelItems.selectedItems.push_back(item->text());
-        ui->ListWidgetRenaming->addItem(item);
-    }
 }
 
 
@@ -142,6 +112,7 @@ void MainWindow::on_toolButton_clicked()
     DialogToolWindow dialogToolWindow;
 
     dialogToolWindow.setModal(true);
+  
     dialogToolWindow.exec();
 }
 
@@ -204,6 +175,5 @@ void MainWindow::on_pushButtonSelectAllDirFiles_clicked()
                                           QString::number(prSelItems.countSelectedItems));
         break;
     }
-
 }
 

@@ -39,14 +39,9 @@ void PearStatusbar::cleanWarnings()
     warnings = "\0";
 }
 
-<<<<<<< Updated upstream
+
 void PearStatusbar::showStatusbarQuantityFilesFolders(const uint16_t countFiles,
                                                       const uint16_t countFolders)
-=======
-
-void PearStatusbar::showStatusbarQuantityFilesFolders(uint16_t countFiles,
-                                                      uint16_t countFolders)
->>>>>>> Stashed changes
 {
     qfilesb 	= QString::fromStdString(
                         std::to_string(countFiles)
