@@ -5,7 +5,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     on_labelDirectoryPath_textChanged(prBuffer.startDirectory);
+
     on_radioButton_clicked();
 }
 
@@ -21,39 +23,35 @@ void MainWindow::on_labelDirectoryPath_textChanged(const QString &inputPath)
     prBuffer.udispdir = inputPath;					//copying PATH into buffer
 
     ui->ListWidget->clear(); 						//clear a previous file output
-
-    prDirInfo = infoFilesFolders(inputPath);	 	//fill the pearDirInfo
+    prDirectory.clearDirectoryInformation();
+    prDirectory.getDirectoryInformation(inputPath);	 		//fill the pearDirInfo
 
     prStatusbar.showSbQuantFileFolder (
-                prDirInfo.FilesInfo.quantity,
-                prDirInfo.FoldersInfo.quantity
-        );
+                        prDirectory.FilesInfo.quantity,
+                        prDirectory.FoldersInfo.quantity
+                    );
 
-    prStatusbar.dirExistStatusbarShow(QDir(inputPath));
-
-    switch (SIGNAL_LISTWIDGET)
+    if (prStatusbar.dirExistStatusbarShow(QDir(inputPath)))
     {
-    case DEFAULT_LISTWIDGET_OUTPUT:
-        foreach (QString folder, prDirInfo.dirFolders.names)
-            ui->ListWidget->addItem(folder);
-        foreach (QString file, prDirInfo.dirFiles.names)
-            ui->ListWidget->addItem(file);
+        switch (SIGNAL_LISTWIDGET)
+        {
+        case DEFAULT_LISTWIDGET_OUTPUT:
+            prDirectory.showFolders(ui->ListWidget);
+            prDirectory.showFiles(ui->ListWidget);
 
-        break;
+            break;
 
-    case ONLYFOLDERS_LISTWIDGET_OUTPUT:
-        foreach (QString folder, prDirInfo.dirFolders.names)
-            ui->ListWidget->addItem(folder);
+        case ONLYFOLDERS_LISTWIDGET_OUTPUT:
+            prDirectory.showFolders(ui->ListWidget);
 
-        break;
+            break;
 
-    case ONLYFILES_LISTWIDGET_OUTPUT:
-        foreach (QString file, prDirInfo.dirFiles.names)
-            ui->ListWidget->addItem(file);
+        case ONLYFILES_LISTWIDGET_OUTPUT:
+            prDirectory.showFiles(ui->ListWidget);
 
-        break;
+            break;
+        }
     }
-
     showStatusbar();
 
     prStatusbar.cleanWarnings();
@@ -95,6 +93,75 @@ void MainWindow::on_radioButton_showFiles_clicked()
 
 void MainWindow::on_ListWidget_itemDoubleClicked(QListWidgetItem *item)
 {
+    prSelItems.addItem(item->text())
+        ? ui->ListWidgetRenaming->addItem(item->text())
+        : ui->renamedFilesInfo->setText("file already picked");
+
+    ui->renamedFilesInfo->setText("Files for renaming: " +
+                                  QString::number(prSelItems.countSelItems));
+}
+
+
+void MainWindow::on_toolButton_clicked()
+{
+    DialogToolWindow dialogToolWindow;
+
+    dialogToolWindow.setModal(true);
+    dialogToolWindow.exec();
+}
+
+//REFACTOR
+void MainWindow::on_ListWidget_itemSelectionChanged()
+{
+
+}
+
+
+void MainWindow::on_pushButtonClearAllRenFiles_clicked()
+{
+    ui->ListWidgetRenaming->clear();
+
+    prSelItems.deleteAllItems();
+//REFACTOR RENAMED_FILES_INFO SET_TEXT
+    ui->renamedFilesInfo->setText("Files for renaming: " +
+                                          QString::number(prSelItems.countSelectedItems));
+}
+
+//REFACTOR
+//rewrite switch to functions
+//RENAMED_FILES_INFO SET_TEXT
+void MainWindow::on_pushButtonSelectAllDirFiles_clicked()
+{
+    switch (SIGNAL_LISTWIDGET)
+    {
+    case DEFAULT_LISTWIDGET_OUTPUT:
+        prSelItems.showFolders(prDirectory.dirFolders, ui->ListWidgetRenaming);
+        prSelItems.showFiles(prDirectory.dirFiles, ui->ListWidgetRenaming);
+
+        ui->renamedFilesInfo->setText(
+                        "Files for renaming: " +
+                        QString::number(prSelItems.countSelectedItems)
+                    );
+        break;
+
+    case ONLYFOLDERS_LISTWIDGET_OUTPUT:
+        prSelItems.showFolders(prDirectory.dirFolders, ui->ListWidgetRenaming);
+
+        ui->renamedFilesInfo->setText(
+                        "Files for renaming: " +
+                        QString::number(prSelItems.countSelectedItems)
+                    );
+        break;
+
+    case ONLYFILES_LISTWIDGET_OUTPUT:
+        prSelItems.showFiles(prDirectory.dirFiles, ui->ListWidgetRenaming);
+
+        ui->renamedFilesInfo->setText(
+                        "Files for renaming: " +
+                        QString::number(prSelItems.countSelectedItems)
+                    );
+        break;
+    }
 
 }
 
