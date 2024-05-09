@@ -20,11 +20,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_labelDirectoryPath_textChanged(const QString &inputPath)
 {
-    prBuffer.udispdir = inputPath;					//copying PATH into buffer
+    prBuffer.udispdir = inputPath;					        //copying PATH into buffer
 
-    ui->ListWidget->clear(); 						//clear a previous file output
+    ui->ListWidget->clear(); 						            //clear a previous file output
 
-    prDirectory.clearDirectoryInformation();		//clear a previous directory info
+    prDirectory.clearDirectoryInformation();		    //clear a previous directory info
 
     prDirectory.getDirectoryInformation(inputPath);	//fill the pearDirInfo
 

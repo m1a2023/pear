@@ -2612,6 +2612,22 @@
       <height>24</height>
      </rect>
     </property>
+    <property name="text">
+     <string>Clear all</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonSelectAllDirFiles">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>360</y>
+      <width>88</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select all</string>
+    </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
