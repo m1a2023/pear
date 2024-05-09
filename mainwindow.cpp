@@ -20,11 +20,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_labelDirectoryPath_textChanged(const QString &inputPath)
 {
-    prBuffer.udispdir = inputPath;					//copying PATH into buffer
+    prBuffer.udispdir = inputPath;					        //copying PATH into buffer
 
-    ui->ListWidget->clear(); 						//clear a previous file output
-    prDirectory.clearDirectoryInformation();
-    prDirectory.getDirectoryInformation(inputPath);	 		//fill the pearDirInfo
+    ui->ListWidget->clear(); 						            //clear a previous file output
+
+    prDirectory.clearDirectoryInformation();		    //clear a previous directory info
+
+    prDirectory.getDirectoryInformation(inputPath);	//fill the pearDirInfo
 
     prStatusbar.showSbQuantFileFolder (
                         prDirectory.FilesInfo.quantity,
@@ -122,14 +124,14 @@ void MainWindow::on_pushButtonClearAllRenFiles_clicked()
     ui->ListWidgetRenaming->clear();
 
     prSelItems.deleteAllItems();
-//REFACTOR RENAMED_FILES_INFO SET_TEXT
-    ui->renamedFilesInfo->setText("Files for renaming: " +
-                                          QString::number(prSelItems.countSelectedItems));
+
+    ui->renamedFilesInfo->setText(
+                        "Files for renaming: " +
+                        QString::number(prSelItems.countSelectedItems)
+                    );
 }
 
 //REFACTOR
-//rewrite switch to functions
-//RENAMED_FILES_INFO SET_TEXT
 void MainWindow::on_pushButtonSelectAllDirFiles_clicked()
 {
     switch (SIGNAL_LISTWIDGET)
@@ -163,5 +165,16 @@ void MainWindow::on_pushButtonSelectAllDirFiles_clicked()
         break;
     }
 
+}
+
+#include 	<filesystem>
+void MainWindow::on_renamePattern_textChanged(const QString &arg1)
+{
+    for (indexer i = 0; i < prSelItems.countSelectedItems; i++)
+    {
+        //QFile::rename(prSelItems.selectedItems[i], arg1 + QString::number(i));
+        //std::filesystem::rename()
+    }
+    ui->ListWidgetRenaming->update();
 }
 

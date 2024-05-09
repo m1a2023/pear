@@ -133,3 +133,16 @@ void PearSelectedItems::deleteAllItems()
 
     countSelItems = 0;
 }
+
+
+//			RENAME FILES
+
+
+//pattern changer
+
+
+//rename algorithm
+
+
+
+
