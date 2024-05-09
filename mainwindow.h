@@ -52,8 +52,6 @@ private slots:
     void on_pushButtonClearAllRenFiles_clicked();
     void on_pushButtonSelectAllDirFiles_clicked();
 
-    void on_renamePattern_textChanged(const QString &arg1);
-
 private:
     Ui::MainWindow *ui;
 };
