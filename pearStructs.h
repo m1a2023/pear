@@ -2,10 +2,8 @@
 #define PEARSTRUCTS_H
 
 
-#include <QString>
-#include <QDir>
-#include <filesystem>
-
+#include 	<QString>
+#include 	<QDir>
 
 using std::vector;
 
@@ -30,24 +28,21 @@ struct pearFolders : public pearFiles { };
 
 struct pearDirectoryInformation
 {
-
     pearFiles			FilesInfo;
     pearFolders 		FoldersInfo;
 };
 
-pearDirInfo infoFilesFolders(QDir);
-
 
 //			STATUSBAR
-#define     pearStatusbarStruct  	pearStructStatusbarUnits
+#define     pearStatusbar  	pearStatusbarUnits
 
-#define     qfilesb     		quantityFilesStatusbar
-#define     qfoldersb   		quantityFoldersStatusbar
-#define     modshowsb   		modeShowStatusbar
-#define     lastmodsb   		lastModifiedStatusbar
-#define 	warnings			warningsStatusbar
+#define     qfilesb     	quantityFilesStatusbar
+#define     qfoldersb   	quantityFoldersStatusbar
+#define     modshowsb   	modeShowStatusbar
+#define     lastmodsb   	lastModifiedStatusbar
+#define 	warnings		warningsStatusbar
 
-struct pearStructStatusbarUnits
+struct pearStatusbarUnits
 {
     QString		quantityFilesStatusbar;
     QString 	quantityFoldersStatusbar;
@@ -57,13 +52,19 @@ struct pearStructStatusbarUnits
 };
 
 //			BUFFER
-#define     udispdir    updateDisplayDirectory
-#define     prevDir     previousDirectory
+#define     udispdir    	updateDisplayDirectory
+#define     startDir     	startDirectory
 
 struct pearBuffer
 {
     QString     startDirectory = "/";
     QString     updateDisplayDirectory;
 };
+
+
+//			BOOL
+
+#define 	Bool		uint8_t
+
 
 #endif // PEARSTRUCTS_H
