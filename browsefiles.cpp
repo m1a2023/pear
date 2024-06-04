@@ -1,8 +1,7 @@
 #include	"pearStructs.h"
 #include    "pearSignals.h"
 #include 	"pearClasses.h"
-#include 	<QLabel>
-
+#include 	"mainwindow.h"
 
 //			DIRECTORY INFORMATION
 #define			getDirInfo		getDirectoryInformation
@@ -13,123 +12,202 @@ void PearDirectory::getDirectoryInformation(QDir directory)
 
     foreach (QFileInfo fileInfo, directory.entryInfoList())
     {
-        fileInfo.isFile()
-                ? 	dirFiles.quantity++
-                : 	dirFolders.quantity++
-                ;
-    }
-
-    foreach (QFileInfo fileInfo, directory.entryInfoList())
-    {
         if (fileInfo.isFile())
         {
-            dirFiles.names.push_back(fileInfo.fileName());
-            dirFiles.lastmod.push_back(fileInfo.lastModified().toString());
+            FilesInfo.files.push_back(fileInfo);
+            FilesInfo.quantity++;
         }
         else {
             if (garbageIndexer++ < 2);
-
             else
             {
-                dirFolders.names.push_back("/" + fileInfo.fileName());
-                dirFolders.lastmod.push_back(fileInfo.lastModified().toString());
+                FoldersInfo.files.push_back(fileInfo);
+                FoldersInfo.quantity++;
             }
         }
     }
-
-    //delete first two wrong folders
-    dirFolders.quantity -= 2;
+    qDebug() << "Directory information was received.";
 }
 
 
 void PearDirectory::clearDirectoryInformation()
 {
-    dirFiles = {
-        0, { }, { }
-    };
-    dirFolders = {
-        0, { }, { }
-    };
+    FilesInfo 	= { 0, { } };
+    FoldersInfo = { 0, { } };
+
+    qDebug() << "Directory Information was cleared.";
 }
 
 
-void PearDirectory::showFiles(QListWidget*	widget)
+pearFiles PearDirectory::mergeFiles()
 {
-    for (indexer i = 0; i < dirFiles.quantity; i++)
-        widget->addItem(dirFiles.names[i]);
+    pearFiles allFiles;
+
+    foreach (QFileInfo folder, FoldersInfo.files)
+    {
+        allFiles.files.push_back(folder);
+        allFiles.quantity++;
+    }
+
+    foreach (QFileInfo file, FilesInfo.files)
+    {
+        allFiles.files.push_back(file);
+        allFiles.quantity++;
+    }
+
+    return allFiles;
 }
 
 
-void PearDirectory::showFolders(QListWidget*	widget)
+void PearDirectory::showFiles(QListWidget* widget)
 {
-    for (indexer i = 0; i < dirFolders.quantity; i++)
-        widget->addItem(dirFolders.names[i]);
+    for (indexer i = 0; i < dirFiles.files.size(); i++)
+        widget->addItem(FilesInfo.files[i].fileName());
 }
 
+
+void PearDirectory::showFolders(QListWidget* widget)
+{
+    for (indexer i = 0; i < dirFolders.files.size(); i++)
+        widget->addItem("/" + FoldersInfo.files[i].fileName());
+}
+
+
+void PearDirectory::showFilesAndFolders(QListWidget* widget)
+{
+    showFolders(widget);
+    showFiles(widget);
+}
 
 
 //			SELECTED ITEMS
 #define 	fileExistsInSelectedItems		fileAlreadyExistrsInSelectedItems
 
 Bool PearSelectedItems::fileAlreadyExistsInSelectedItems
-                                (const QString &newItem)
+                                (const QFileInfo newItem)
 {
-    Bool 	fileExists = TRUE;
+    Bool fileExists = TRUE;
 
-    for (indexer i = 0; i < selectedItems.size(); i++)
+    for (indexer i = 0; i < quantity; i++)
     {
-        newItem == selectedItems[i]
-                ? 	fileExists *= FALSE
-                : 	fileExists *= TRUE
+       newItem.fileName() != files[i].fileName()
+                ? 	fileExists *= TRUE
+                : 	fileExists *= FALSE
                 ;
+
+       if (fileExists == FALSE) return fileExists;
     }
-    return 	fileExists;
-}
-
-
-Bool PearSelectedItems::addItem(const QString &newItem)
-{
-    Bool fileExists;
-
-
-    if ((fileExists = fileAlreadyExistsInSelectedItems(newItem)))
-    {
-        countSelItems++;
-        selectedItems.push_back(newItem);
-    }
-
     return fileExists;
 }
 
 
-void PearSelectedItems::showFiles(pearFiles		prFiles,
-                                  QListWidget* 	widget)
+void PearSelectedItems::addItem(const QFileInfo newItem)
 {
-    for (indexer i = 0; i < prFiles.quantity; i++)
+    if (fileAlreadyExistsInSelectedItems(newItem))
     {
-        widget->addItem(prFiles.names[i]);
-        addItem(prFiles.names[i]);
+        files.push_back(newItem);
+        quantity++;
     }
 }
 
 
-void PearSelectedItems::showFolders(pearFolders		prFolders,
-                                    QListWidget*	widget)
+void PearSelectedItems::addAllItems(const vector <QFileInfo> newItems)
 {
-    for (indexer i = 0; i < prFolders.quantity; i++)
+    foreach (QFileInfo item, newItems)
+        addItem(item);
+}
+
+
+void PearSelectedItems::addAllItems(const vector<QFileInfo> newFileItems,
+                                    const vector<QFileInfo> newFolderItems)
+{
+    foreach (QFileInfo file, newFileItems)
+        addItem(file);
+
+    foreach (QFileInfo folder, newFolderItems)
+        addItem(folder);
+}
+
+
+void PearSelectedItems::display(QListWidget *widget)
+{
+    foreach (QFileInfo file, files)
+        widget->addItem(file.isDir()
+                            ? "/" + file.fileName()
+                            : file.fileName());
+    qDebug() << "Selected items were shown.";
+}
+
+
+void PearSelectedItems::showCountItems(QLabel * label)
+{
+    label->setText("Files for renaming: " +
+                    QString::number(quantity));
+}
+
+
+void PearSelectedItems::showFiles(pearAbstractFile  prFiles,
+                                  QListWidget* 	    widget)
+{
+    for (indexer i = 0; i < prFiles.files.size(); i++)
     {
-        widget->addItem(prFolders.names[i]);
-        addItem(prFolders.names[i]);
+        widget->addItem(prFiles.files[i].fileName());
+        addItem(prFiles.files[i]);
     }
+}
+
+
+void PearSelectedItems::showFolders(pearAbstractFile prFolders,
+                                    QListWidget*	 widget)
+{
+    for (indexer i = 0; i < prFolders.files.size(); i++)
+    {
+        widget->addItem(prFolders.files[i].fileName());
+        addItem(prFolders.files[i]);
+    }
+}
+
+
+QFileInfo PearSelectedItems::searchItemByName(const QString &name)
+{
+    foreach (QFileInfo fileInfo, files)
+    {
+        if (fileInfo.fileName() == name)
+            return fileInfo;
+    }
+}
+
+
+void PearSelectedItems::deleteItem(const indexer index)
+{
+    if (fileAlreadyExistsInSelectedItems(files[index]))
+        files.erase(files.begin() + index);
 }
 
 
 void PearSelectedItems::deleteAllItems()
 {
-    for (indexer i = 0; i < countSelItems; i++)
+    foreach (QFileInfo file, files)
     {
-        selectedItems.pop_back();
+        files.pop_back();
     }
+    quantity = 0;
+}
 
-    countSelItems = 0;
+
+//			SIGNALS
+void MainWindow::setDefaultSignals()
+{
+    SIGNAL_LISTWIDGET 		= DEFAULT_LISTWIDGET_OUTPUT;
+    SIGNAL_RENAMEPATTERN	= USE_NUMBERS_IN_PATTERN;
+}
+
+
+void MainWindow::setDefaultValue()
+{
+    setDefaultSignals();
+
+    prStatusbar.modshowsb	= "default view";
+    ui->ListWidget->clear();
+    on_labelDirectoryPath_textChanged(prBuffer.startDir);
 }

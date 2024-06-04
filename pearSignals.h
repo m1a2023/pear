@@ -17,11 +17,11 @@ enum SignalsListWidget
 };
 
 
-//		SIGNALS TO Bool
-enum
+//		SIGNALS TO RENAME PATTERN
+enum SignalsRenamePattern
 {
-    FALSE,
-    TRUE
+    USE_NUMBERS_IN_PATTERN	= 0x00000000,
+    USE_LETTERS_IN_PATTERN	= 0x00000001
 };
 
 

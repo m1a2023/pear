@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>pearIconv0.1.ico</file>
+        <file>pearIconv0.2.png</file>
+        <file>pearIconv0.1.jpg</file>
+    </qresource>
+</RCC>

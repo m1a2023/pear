@@ -40,7 +40,7 @@ void PearStatusbar::cleanWarnings()
 }
 
 
-void PearStatusbar::showStatusbarQuantityFilesFolders(const uint16_t countFiles,
+void PearStatusbar::setStatusbarQuantityFilesFolders(const uint16_t countFiles,
                                                       const uint16_t countFolders)
 {
     qfilesb 	= QString::fromStdString(
